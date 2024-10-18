@@ -1,5 +1,11 @@
-console.log("I've added extra test cases to each function to ensure accuracy.\n")
-console.log("The GA-provided tests are the first result for each question.\n")
+/*
+NOTES:
+I've added extra test cases to each function to challenge myself in edge cases.
+
+The GA-provided tests are the first result for each question.
+
+Research was done via Google (W3, Stack Overflow, etc) and teaching myself concepts, not AI.
+*/
 
 /*
 Exercise 1: maxOfTwoNumbers()
@@ -63,6 +69,7 @@ Complete the exercise in the space below:
 */
 
 // practicing arrow functions
+// researched .includes() and tried to apply it
 const isCharAVowel = (char) => {
     return 'aeiouAEIOU'.includes(char)
 }
@@ -93,6 +100,7 @@ console.log('Exercise 4 Result:', generateEmail("johnsmith", "example.com"))
 console.log('Exercise 4 Result:', generateEmail("mariamaria", "gmail.com"))
 console.log('Exercise 4 Result:', generateEmail("bloop4blorp", "aol.com"),'\n')
 
+
 /*
 Exercise 5: greetUser()
 
@@ -113,3 +121,207 @@ const greetUser = function(name, time = 'day') {
 console.log('Exercise 5 Result:', greetUser("Sam", "morning"))
 console.log('Exercise 5 Result:', greetUser("Mrs. Frizzle", "evening"))
 console.log('Exercise 5 Result:', greetUser("dude"),'\n')
+
+
+/*
+Exercise 6: maxOfThree()
+
+Define a function, maxOfThree. It should accept three numbers 
+and return the largest among them.
+
+Example: maxOfThree(17, 4, 9) should return 17.
+
+Complete the exercise in the space below:
+*/
+
+// researched Math functions in JS and tried to apply
+// but I typed a long-form version below for practice (commented out)
+function maxOfThree(n1,n2,n3) {
+    return Math.max(n1,n2,n3)
+}
+
+/*
+function maxOfThree(n1,n2,n3) {
+    if (n1 >= n2 && n1 >= n3) {
+        return n1
+    } else if (n2 >= n1 && n2 >= n3) {
+        return n2
+    } else {
+        return n3
+    }
+}
+*/
+
+console.log('Exercise 6 Result:', maxOfThree(5, 10, 8))
+console.log('Exercise 6 Result:', maxOfThree(29, 987, 12))
+console.log('Exercise 6 Result:', maxOfThree(56, 56, 56),'\n')
+
+
+/*
+Exercise 7: calculateTip()
+
+Create a function called calculateTip. It should take two arguments: 
+the bill amount and the tip percentage (as a whole number). 
+The function should return the amount of the tip.
+
+Example: calculateTip(50, 20) should return 10.
+
+Complete the exercise in the space below:
+*/
+
+// practicing manipulating syntax of return value
+// previously found .toFixed() in independent research and applied concept
+const calculateTip = (bill,perc = 20) => {
+    return '$' + (bill * (perc * .01)).toFixed(2)
+}
+
+console.log('Exercise 7 Result:', calculateTip(50, 20))
+console.log('Exercise 7 Result:', calculateTip(127, 12))
+console.log('Exercise 7 Result:', calculateTip(2456),'\n')
+
+
+/*
+Exercise 8: convertTemperature()
+
+Write a function named convertTemperature. 
+It takes two arguments: a temperature and a string representing the 
+scale ('C' for Celsius, 'F' for Fahrenheit). 
+Convert the temperature to the other scale.
+
+Example: convertTemperature(32, 'C') should return 89.6 (Fahrenheit).
+Example: convertTemperature(32, 'F') should return 0 (Celsius).
+
+Complete the exercise in the space below:
+*/
+
+// there's a simpler way to do this, but I want to practice decimal places, so...
+// this returns with one decimal place if not a whole number, zero places if is
+const convertTemperature = function(temp,scale = 'F') {
+    if (scale == 'C') {
+        let newTemp =  (9 / 5 * temp + 32)
+        if (newTemp - Math.floor(newTemp) == 0) {
+            return newTemp + ' (Fahrenheit)'
+        } else {
+            return newTemp.toFixed(1) + ' (Fahrenheit)'
+        }
+    } else {
+        let newTemp = ((temp - 32) * 5 / 9)
+        if (newTemp - Math.floor(newTemp) == 0) {
+            return newTemp + ' (Celsius)'
+        } else {
+            return newTemp.toFixed(1) + ' (Celsius)'
+        }
+    }
+}
+
+console.log('Exercise 8 Result:', convertTemperature(32, "C"))
+console.log('Exercise 8 Result:', convertTemperature(110))
+console.log('Exercise 8 Result:', convertTemperature(32, 'F'),'\n')
+
+
+/*
+Exercise 9: basicCalculator()
+
+Create a function named basicCalculator. 
+It should take three arguments: two numbers and a string representing 
+an operation ('add', 'subtract', 'multiply', 'divide'). 
+Perform the provided operation on the two numbers. 
+In operations where the order of numbers is important, 
+treat the first parameter as the first operand and the 
+second parameter as the second operand.
+
+Example: basicCalculator(10, 5, 'subtract') should return 5.
+
+Complete the exercise in the space below:
+*/
+
+// practicing switch statements
+const basicCalculator = (n1,n2,oper) => {
+    switch (oper) {
+        case 'add': return n1 + n2
+        case 'subtract': return n1 - n2
+        case 'multiply': return n1 * n2
+        case 'divide': return n1 / n2
+    }
+}
+
+console.log('Exercise 9 Result:', basicCalculator(10, 5, "subtract"))
+console.log('Exercise 9 Result:', basicCalculator(32, 8, "multiply"))
+console.log('Exercise 9 Result:', basicCalculator(100, 25, "divide"),'\n')
+
+
+/*
+Exercise 10: calculateGrade()
+
+Define a function called calculateGrade. 
+It should take a numerical score and return the corresponding letter 
+grade (A, B, C, D, F). 
+
+For example, 90 and above yields an 'A', 80-89 is a 'B', 
+and 70-79 is a 'C', 60-69 is a 'D' and anything lower than a 60 is an 'F'.
+
+Example: calculateGrade(100) should return A.
+
+Complete the exercise in the space below:
+*/
+
+// more switch practice (this is my third attempt at this problem, which works!)
+const calculateGrade = function(p) {
+    switch (true) {
+        case (p >= 90): return 'A'
+        case (p >= 80): return 'B'
+        case (p >= 70): return 'C'
+        case (p >= 60): return 'D'
+        default: return 'F'
+    }
+}
+
+console.log('Exercise 10 Result:', calculateGrade(95))
+console.log('Exercise 10 Result:', calculateGrade(67))
+console.log('Exercise 10 Result:', calculateGrade(4))
+
+
+/*
+Exercise 11: createUsername()
+
+Define a function called createUsername. 
+It should take a first name and a last name and return a username. 
+
+The username should be a combination of the following:
+- The first three letters of the first name.
+- The first three letters of the last name.
+- The total character count of the first and last name combined.
+
+Example: createUsername('Samantha', 'Green') should return 'SamGre13'.
+
+Complete the exercise in the space below:
+*/
+
+// found .slice() method in independent research, practicing here
+function createUsername(first,last) {
+    return first.slice(0,3) + last.slice(0,3) + (first + last).length
+}
+
+console.log('Exercise 11 Result:', createUsername("Samantha", "Green"))
+console.log('Exercise 11 Result:', createUsername("Farthington", "Trethers"))
+console.log('Exercise 11 Result:', createUsername("Jo", "Marysteen"),'\n')
+
+
+/*
+Exercise 12: numArgs()
+
+Challenge yourself with numArgs. 
+This function should return the count of arguments passed to it when called.
+
+Complete the exercise in the space below:
+*/
+
+// found 'arguments' object in Stack Overflow research, practicing applying
+// quickly realized it does NOT work with arrow functions; changed syntax
+const numArgs = function() {
+    return arguments.length
+}
+
+console.log('Exercise 12 Result:', numArgs(1, 2, 3, 4))
+console.log('Exercise 12 Result:', numArgs(1, 2, 3, 4, 5, 6, 7, 8, 9))
+console.log('Exercise 12 Result:', numArgs('blue', false, [1,2,3], null, 57))
