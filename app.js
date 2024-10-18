@@ -195,7 +195,7 @@ Complete the exercise in the space below:
 */
 
 // there's a simpler way to do this, but I want to practice decimal places, so...
-// this returns with one decimal place if not a whole number, zero places if is
+// this returns with one decimal place if not a whole number, zero places if it is
 const convertTemperature = function(temp,scale = 'F') {
     if (scale == 'C') {
         let newTemp =  (9 / 5 * temp + 32)
@@ -266,6 +266,7 @@ Complete the exercise in the space below:
 */
 
 // more switch practice (this is my third attempt at this problem, which works!)
+// learned there are strict limits to what can and cannot be included on switch line
 const calculateGrade = function(p) {
     switch (true) {
         case (p >= 90): return 'A'
@@ -278,7 +279,7 @@ const calculateGrade = function(p) {
 
 console.log('Exercise 10 Result:', calculateGrade(95))
 console.log('Exercise 10 Result:', calculateGrade(67))
-console.log('Exercise 10 Result:', calculateGrade(4))
+console.log('Exercise 10 Result:', calculateGrade(4),'\n')
 
 
 /*
